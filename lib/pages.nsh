@@ -11,9 +11,14 @@
 !define MUI_COMPONENTSPAGE_TEXT_DESCRIPTION_INFO "The selected dependencies will automatically be installed."
 !define MUI_COMPONENTSPAGE_TEXT_DESCRIPTION_TITLE "Description"
 
+# Finish Page
+!define MUI_FINISHPAGE_TITLE "Installation Finished"
+!define MUI_FINISHPAGE_TEXT "You may now launch Grande Omega"
+!define MUI_FINISHPAGE_RUN_TEXT "Run Grande Omega"
+!define MUI_FINISHPAGE_RUN ""
+
 # Pages
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_COMPONENTS
-!insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
