@@ -1,5 +1,4 @@
 !include "lib\pages.nsh"
-!include "lib\errors.nsh"
 
 !define TempDir "$TEMP\go-installer"
 
@@ -8,6 +7,8 @@ Var GoVersion
 Function .onInit
     InitPluginsDir
     CreateDirectory ${TempDir}
+
+	; Get the latest Grande Omega version
     NScurl::http GET "https://www.grandeomega.com/api/v1/CustomAssignmentLogic/version" "${TempDir}\version.txt" /END
     pop $R1
     StrCmp $R1 "OK" 0 notOk
