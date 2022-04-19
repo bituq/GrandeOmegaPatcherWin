@@ -1,18 +1,16 @@
-!include "lib\pages.nsh"
 !include "lib\checkForSpaces.nsh"
+!include "lib\pages.nsh"
 
 !define TempDir "$TEMP\go-installer"
 
 Var GoVersion
 Var GoSectionName
-Var GoDir
 
 Function .onInit
     CreateDirectory ${TempDir}
     
     ; Initialize variables
     StrCpy $GoSectionName "Grande Omega"
-    StrCpy $GoDir "$LOCALAPPDATA\GrandeOmega"
 
 	; Get the latest Grande Omega version
     NScurl::http GET "https://www.grandeomega.com/api/v1/CustomAssignmentLogic/version" "${TempDir}\version.txt" /END
@@ -27,11 +25,13 @@ Function .onInit
     notOk:
 
     ; Check whether there are spaces in the default directory path
-    Push $GoDir
+    StrCpy $INSTDIR "$LOCALAPPDATA\GrandeOmega"
+    Push $INSTDIR
     Call CheckForSpaces
     Pop $R0
     StrCmp $R0 0 noSpaces
-        StrCpy $GoDir ""
+        ; Set the recommended directory path to blank, so it can be changed by the user
+        StrCpy $INSTDIR ""
     noSpaces:
 FunctionEnd
 
