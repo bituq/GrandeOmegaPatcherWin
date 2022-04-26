@@ -5,9 +5,9 @@ A dependency patcher for Grande Omega (GO), inspired by an already existing [pat
 This project aims to be an easy and straightforward way for Windows users to install GO. No need to install any additional dependencies to run the installer.
 
 ## Features
-- Installs latest version of GO if available.
-- Patches GO dependencies to their latest versions.
-- Pick whichever dependencies you'd like to install.
+- [ ] Installs latest version of GO if available.
+- [ ] Patches GO dependencies to their latest versions.
+- [ ] Pick whichever dependencies you'd like to install.
 
 ## How to use
 Head over to the **releases** section of this repository, and download whichever version you want. You don't need to install any dependencies. Run it as you would with any traditional Windows installer.
