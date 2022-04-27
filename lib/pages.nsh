@@ -24,16 +24,6 @@ Function DirectoryLeave
 		Abort 
 	noSpaces:
 
-	FindFirst $R0 $R1 "$INSTDIR\go_student_win"
-	loop:
-		StrCmp $R1 "" done
-		FindNext $R0 $R1
-		GoTo loop
-	done:
-	FindClose $R0
-	DetailPrint $R0
-	DetailPrint $R1
-
 	Pop $R1
 	Pop $R0
 FunctionEnd

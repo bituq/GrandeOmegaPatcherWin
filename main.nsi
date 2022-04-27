@@ -2,9 +2,27 @@
 !include "lib\checkForSpaces.nsh"
 !include "lib\pages.nsh"
 
+; Constants
+!define VERSION "0.1.0"
+!define COPYRIGHT "Copyright (c) 2022 Dylan N"
+!define MANUFACTURER "Bituq"
+!define NAME "Grande Omega Patcher"
+!define UNREGISTRYPATH "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${NAME}"
+!define UNNAME "Uninstall Grande Omega"
 !define ZipTarget "$TEMP\go_student_win.zip"
 !define TempDir "$TEMP\go-installer"
 
+; Attributes
+VIAddVersionKey "ProductName" "${NAME}"
+VIAddVersionKey "CompanyName" "${MANUFACTURER}"
+VIAddVersionKey "LegalCopyright" "Copyright (c) 2022 Dylan N"
+VIAddVersionKey "FileVersion" "${VERSION}"
+VIProductVersion "${VERSION}.0"
+Name "${NAME}"
+OutFile "${NAME}.exe"
+BrandingText "${COPYRIGHT}"
+
+; Variables
 Var GoVersion
 Var GoSectionName
 
