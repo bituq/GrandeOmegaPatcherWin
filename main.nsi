@@ -45,20 +45,25 @@ FunctionEnd
 
 Section !$GoSectionName
     NScurl::http GET "https://www.grandeomega.com/downloads/go_student_win.zip" ${ZipTarget} \
-        /TIMEOUT "15s" \
-        /BACKGROUND \
-        /END
+        /TIMEOUT "15s" /BACKGROUND /END
     pop $R0
+
+    ; Print any errors
     NScurl::query /ID $R0 "@ERROR@"
     pop $R1
     DetailPrint "Grande Omega download status: $R1"
+
+    ; Print output file path
     NScurl::query /ID $R0 "@OUT@"
     pop $R1
     DetailPrint $R1
+
+    ; Wait for finish and unzip
     NScurl::wait /ID $R0 /CANCEL /END
     DetailPrint "Unzipping Grande Omega to $INSTDIR"
     nsisunz::Unzip ${ZipTarget} "$INSTDIR"
     DetailPrint "$INSTDIR\go_student_win"
     Delete ${ZipTarget}
+
     CreateShortcut "$DESKTOP\Grande Omega $GoVersion.lnk" "$INSTDIR\go_student_win\GrandeOmega.exe"
 SectionEnd
