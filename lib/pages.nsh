@@ -40,7 +40,9 @@ FunctionEnd
 
 # Welcome Page
 !define MUI_WELCOMEPAGE_TITLE "Grande Omega Patcher"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to Open Source Grande Omega Patcher. This patcher allows you to install Grande Omega with its dependencies automatically."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to Open Source Grande Omega Patcher. \
+	This patcher allows you to install Grande Omega with its dependencies automatically. \
+	Please note that this is a community-made patcher. We are unaffiliated with Grande Omega."
 
 # Components Page
 !define MUI_COMPONENTSPAGE_TEXT_TOP "Dependencies"
@@ -59,6 +61,8 @@ FunctionEnd
 	make sure that there aren't any spaces in the path. Click install to start the installation."
 
 # Pages
+!define MUI_WELCOMEFINISHPAGE_BITMAP "assets\banner.bmp"
+
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_COMPONENTS
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE "DirectoryLeave"
